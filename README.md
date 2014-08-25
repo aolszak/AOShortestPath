@@ -1,7 +1,7 @@
 AOShortestPath
 ==============
 
-Implementation of shortest path algorithm - based on Dijkstra's algorithm.
+Implementation of shortest path algorithm in Objective-C for iOS - based on Dijkstra's algorithm.
 
 
 
