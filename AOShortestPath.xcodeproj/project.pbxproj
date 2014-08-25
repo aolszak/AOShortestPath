@@ -36,23 +36,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FAFEC8F519AA76AC00F1C127 /* Path.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Path.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAFEC8F519AA76AC00F1C127 /* AOShortestPath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AOShortestPath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFEC8F819AA76AC00F1C127 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FAFEC8FA19AA76AC00F1C127 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		FAFEC8FC19AA76AC00F1C127 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		FAFEC90019AA76AC00F1C127 /* Path-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Path-Info.plist"; sourceTree = "<group>"; };
+		FAFEC90019AA76AC00F1C127 /* AOShortestPath-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AOShortestPath-Info.plist"; sourceTree = "<group>"; };
 		FAFEC90219AA76AC00F1C127 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FAFEC90419AA76AC00F1C127 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		FAFEC90619AA76AC00F1C127 /* Path-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Path-Prefix.pch"; sourceTree = "<group>"; };
+		FAFEC90619AA76AC00F1C127 /* AOShortestPath-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AOShortestPath-Prefix.pch"; sourceTree = "<group>"; };
 		FAFEC90719AA76AC00F1C127 /* PathAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PathAppDelegate.h; sourceTree = "<group>"; };
 		FAFEC90819AA76AC00F1C127 /* PathAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PathAppDelegate.m; sourceTree = "<group>"; };
 		FAFEC90B19AA76AC00F1C127 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAFEC90D19AA76AC00F1C127 /* PathViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PathViewController.h; sourceTree = "<group>"; };
 		FAFEC90E19AA76AC00F1C127 /* PathViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PathViewController.m; sourceTree = "<group>"; };
 		FAFEC91019AA76AC00F1C127 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		FAFEC91619AA76AC00F1C127 /* PathTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PathTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAFEC91619AA76AC00F1C127 /* AOShortestPathTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AOShortestPathTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFEC91719AA76AC00F1C127 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		FAFEC91F19AA76AC00F1C127 /* PathTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PathTests-Info.plist"; sourceTree = "<group>"; };
+		FAFEC91F19AA76AC00F1C127 /* AOShortestPathTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AOShortestPathTests-Info.plist"; sourceTree = "<group>"; };
 		FAFEC92119AA76AC00F1C127 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FAFEC92319AA76AC00F1C127 /* PathTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PathTests.m; sourceTree = "<group>"; };
 		FAFEC92D19AA9ADE00F1C127 /* AOShortestPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOShortestPath.h; sourceTree = "<group>"; };
@@ -97,8 +97,8 @@
 		FAFEC8F619AA76AC00F1C127 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FAFEC8F519AA76AC00F1C127 /* Path.app */,
-				FAFEC91619AA76AC00F1C127 /* PathTests.xctest */,
+				FAFEC8F519AA76AC00F1C127 /* AOShortestPath.app */,
+				FAFEC91619AA76AC00F1C127 /* AOShortestPathTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,10 +134,10 @@
 		FAFEC8FF19AA76AC00F1C127 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FAFEC90019AA76AC00F1C127 /* Path-Info.plist */,
+				FAFEC90019AA76AC00F1C127 /* AOShortestPath-Info.plist */,
 				FAFEC90119AA76AC00F1C127 /* InfoPlist.strings */,
 				FAFEC90419AA76AC00F1C127 /* main.m */,
-				FAFEC90619AA76AC00F1C127 /* Path-Prefix.pch */,
+				FAFEC90619AA76AC00F1C127 /* AOShortestPath-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -154,7 +154,7 @@
 		FAFEC91E19AA76AC00F1C127 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FAFEC91F19AA76AC00F1C127 /* PathTests-Info.plist */,
+				FAFEC91F19AA76AC00F1C127 /* AOShortestPathTests-Info.plist */,
 				FAFEC92019AA76AC00F1C127 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -163,9 +163,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FAFEC8F419AA76AC00F1C127 /* Path */ = {
+		FAFEC8F419AA76AC00F1C127 /* AOShortestPath */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FAFEC92719AA76AC00F1C127 /* Build configuration list for PBXNativeTarget "Path" */;
+			buildConfigurationList = FAFEC92719AA76AC00F1C127 /* Build configuration list for PBXNativeTarget "AOShortestPath" */;
 			buildPhases = (
 				FAFEC8F119AA76AC00F1C127 /* Sources */,
 				FAFEC8F219AA76AC00F1C127 /* Frameworks */,
@@ -175,14 +175,14 @@
 			);
 			dependencies = (
 			);
-			name = Path;
+			name = AOShortestPath;
 			productName = Path;
-			productReference = FAFEC8F519AA76AC00F1C127 /* Path.app */;
+			productReference = FAFEC8F519AA76AC00F1C127 /* AOShortestPath.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FAFEC91519AA76AC00F1C127 /* PathTests */ = {
+		FAFEC91519AA76AC00F1C127 /* AOShortestPathTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FAFEC92A19AA76AC00F1C127 /* Build configuration list for PBXNativeTarget "PathTests" */;
+			buildConfigurationList = FAFEC92A19AA76AC00F1C127 /* Build configuration list for PBXNativeTarget "AOShortestPathTests" */;
 			buildPhases = (
 				FAFEC91219AA76AC00F1C127 /* Sources */,
 				FAFEC91319AA76AC00F1C127 /* Frameworks */,
@@ -193,9 +193,9 @@
 			dependencies = (
 				FAFEC91C19AA76AC00F1C127 /* PBXTargetDependency */,
 			);
-			name = PathTests;
+			name = AOShortestPathTests;
 			productName = PathTests;
-			productReference = FAFEC91619AA76AC00F1C127 /* PathTests.xctest */;
+			productReference = FAFEC91619AA76AC00F1C127 /* AOShortestPathTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -213,7 +213,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FAFEC8F019AA76AC00F1C127 /* Build configuration list for PBXProject "Path" */;
+			buildConfigurationList = FAFEC8F019AA76AC00F1C127 /* Build configuration list for PBXProject "AOShortestPath" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -226,8 +226,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FAFEC8F419AA76AC00F1C127 /* Path */,
-				FAFEC91519AA76AC00F1C127 /* PathTests */,
+				FAFEC8F419AA76AC00F1C127 /* AOShortestPath */,
+				FAFEC91519AA76AC00F1C127 /* AOShortestPathTests */,
 			);
 		};
 /* End PBXProject section */
@@ -279,7 +279,7 @@
 /* Begin PBXTargetDependency section */
 		FAFEC91C19AA76AC00F1C127 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FAFEC8F419AA76AC00F1C127 /* Path */;
+			target = FAFEC8F419AA76AC00F1C127 /* AOShortestPath */;
 			targetProxy = FAFEC91B19AA76AC00F1C127 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -388,9 +388,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Path/Path-Prefix.pch";
-				INFOPLIST_FILE = "Path/Path-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Path/AOShortestPath-Prefix.pch";
+				INFOPLIST_FILE = "Path/AOShortestPath-Info.plist";
+				PRODUCT_NAME = AOShortestPath;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -401,9 +401,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Path/Path-Prefix.pch";
-				INFOPLIST_FILE = "Path/Path-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Path/AOShortestPath-Prefix.pch";
+				INFOPLIST_FILE = "Path/AOShortestPath-Info.plist";
+				PRODUCT_NAME = AOShortestPath;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -423,8 +423,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "PathTests/PathTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "PathTests/AOShortestPathTests-Info.plist";
+				PRODUCT_NAME = AOShortestPathTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -441,8 +441,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Path/Path-Prefix.pch";
-				INFOPLIST_FILE = "PathTests/PathTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "PathTests/AOShortestPathTests-Info.plist";
+				PRODUCT_NAME = AOShortestPathTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -451,7 +451,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FAFEC8F019AA76AC00F1C127 /* Build configuration list for PBXProject "Path" */ = {
+		FAFEC8F019AA76AC00F1C127 /* Build configuration list for PBXProject "AOShortestPath" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FAFEC92519AA76AC00F1C127 /* Debug */,
@@ -460,7 +460,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FAFEC92719AA76AC00F1C127 /* Build configuration list for PBXNativeTarget "Path" */ = {
+		FAFEC92719AA76AC00F1C127 /* Build configuration list for PBXNativeTarget "AOShortestPath" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FAFEC92819AA76AC00F1C127 /* Debug */,
@@ -469,7 +469,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FAFEC92A19AA76AC00F1C127 /* Build configuration list for PBXNativeTarget "PathTests" */ = {
+		FAFEC92A19AA76AC00F1C127 /* Build configuration list for PBXNativeTarget "AOShortestPathTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FAFEC92B19AA76AC00F1C127 /* Debug */,

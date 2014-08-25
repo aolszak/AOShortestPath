@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FAFEC8F419AA76AC00F1C127"
                BuildableName = "Path.app"
-               BlueprintName = "Path"
-               ReferencedContainer = "container:Path.xcodeproj">
+               BlueprintName = "AOShortestPath"
+               ReferencedContainer = "container:AOShortestPath.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FAFEC91519AA76AC00F1C127"
                BuildableName = "PathTests.xctest"
-               BlueprintName = "PathTests"
-               ReferencedContainer = "container:Path.xcodeproj">
+               BlueprintName = "AOShortestPathTests"
+               ReferencedContainer = "container:AOShortestPath.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FAFEC8F419AA76AC00F1C127"
             BuildableName = "Path.app"
-            BlueprintName = "Path"
-            ReferencedContainer = "container:Path.xcodeproj">
+            BlueprintName = "AOShortestPath"
+            ReferencedContainer = "container:AOShortestPath.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FAFEC8F419AA76AC00F1C127"
             BuildableName = "Path.app"
-            BlueprintName = "Path"
-            ReferencedContainer = "container:Path.xcodeproj">
+            BlueprintName = "AOShortestPath"
+            ReferencedContainer = "container:AOShortestPath.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FAFEC8F419AA76AC00F1C127"
             BuildableName = "Path.app"
-            BlueprintName = "Path"
-            ReferencedContainer = "container:Path.xcodeproj">
+            BlueprintName = "AOShortestPath"
+            ReferencedContainer = "container:AOShortestPath.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
