@@ -8,20 +8,25 @@
 
 #import <Foundation/Foundation.h>
 
+@class AOPathConnection;
+
 @interface AOPathPoint : NSObject
-@property (assign, nonatomic) NSUInteger tag;
+@property (assign, nonatomic) long tag;
+@property (strong, nonatomic) NSMutableArray *connectionList;
+- (id)initWithTag:(long)tag;
+- (void)addConnection:(AOPathConnection*)connection;
+- (AOPathConnection*)getConnectionToPointWithTag:(long)tag;
 @end
 
 @interface AOPathConnection : NSObject
-@property (strong, nonatomic) AOPathPoint *pointA;
-@property (strong, nonatomic) AOPathPoint *pointB;
+@property (strong, nonatomic) AOPathPoint *point;
 @property (assign, nonatomic) CGFloat weight;
 @end
 
 @interface AOShortestPath : NSObject
 
-@property (strong, nonatomic) NSArray *connectionList;
-
+@property (strong, nonatomic) NSMutableArray *pointList;
+- (AOPathPoint*)getPathPointWithTag:(long)tag;
 - (NSArray*)getShortestPathFromPoint:(AOPathPoint*)fromPoint toPoint:(AOPathPoint*)toPoint;
 
 @end

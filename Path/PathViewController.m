@@ -7,9 +7,11 @@
 //
 
 #import "PathViewController.h"
+#import "AOShortestPath.h"
 
 @interface PathViewController ()
 
+@property (strong, nonatomic) AOShortestPath *pathManager;
 @property (strong, nonatomic) NSArray *plane;
 
 @property (strong, nonatomic) UIButton *startField;
@@ -26,20 +28,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
     
+    _pathManager = [[AOShortestPath alloc] init];
+    _pathManager.pointList = [NSMutableArray array];
+    
+    // create visual structure of plane
     _plane = @[
-        @[@1,@0,@1,@0,@1,@1],
-        @[@1,@1,@1,@0,@1,@1],
-        @[@1,@0,@1,@0,@1,@1],
-        @[@1,@0,@1,@0,@1,@1],
-        @[@1,@0,@1,@1,@1,@1],
-        @[@1,@0,@1,@1,@1,@1],
-        @[@1,@0,@1,@1,@1,@1]
+        @[@1,@0,@1,@1,@1,@1,@1],
+        @[@1,@1,@1,@0,@0,@0,@1],
+        @[@1,@0,@1,@0,@1,@0,@1],
+        @[@1,@0,@0,@0,@1,@0,@1],
+        @[@1,@0,@1,@0,@1,@1,@1],
+        @[@1,@0,@1,@0,@0,@1,@1],
+        @[@1,@0,@1,@0,@1,@1,@1],
+        @[@1,@0,@1,@0,@1,@1,@1],
+        @[@1,@0,@1,@1,@1,@1,@1]
     ];
     
+    // set default field size
     CGFloat size = self.view.frame.size.width/[_plane[0] count];
     
+    // generate plans's fields
     for (int i = 0; i<_plane.count; i++) {
         NSArray *row = _plane[i];
         for (int j=0; j<row.count; j++) {
@@ -55,12 +64,34 @@
             } else {
                 [l setTitle:[NSString stringWithFormat:@"%d%d", i, j] forState:UIControlStateNormal];
             }
+            if (l.tag == 76) {
+                l.backgroundColor = [UIColor colorWithWhite:0.6 alpha:1.0];
+            }
             [l addTarget:self action:@selector(actionField:) forControlEvents:UIControlEventTouchUpInside];
             [self.view addSubview:l];
+            
+            // add path path point
+            AOPathPoint *p = [[AOPathPoint alloc] initWithTag:l.tag];
+            [_pathManager.pointList addObject:p];
         }
     }
     
-    _startField = (UIButton*)[self.view viewWithTag:41];
+    // create path connections
+    for (int i = 0; i<_pathManager.pointList.count; i++) {
+        AOPathPoint *p = _pathManager.pointList[i];
+        NSArray *connectionList = [self getConnectionListForTag:p.tag];
+        [connectionList enumerateObjectsUsingBlock:^(UIButton *b, NSUInteger idx, BOOL *stop) {
+            AOPathConnection *c = [[AOPathConnection alloc] init];
+            if (p.tag == 76) {
+                // its very hard to get on this field
+                c.weight = 10;
+            }
+            c.point = [_pathManager getPathPointWithTag:b.tag];
+            [p addConnection:c];
+        }];
+    }
+    
+    _startField = (UIButton*)[self.view viewWithTag:1];
     _startField.backgroundColor = [UIColor greenColor];
     
     _person = [[UIImageView alloc] initWithFrame:_startField.frame];
@@ -70,33 +101,44 @@
 }
 
 - (void)actionField:(UIButton*)sender {
-    _search = !_search;
-    
-    if (_search) {
+    if (!_search) {
+        _search = YES;
         sender.backgroundColor = [UIColor greenColor];
         _targetField = sender;
         
-        NSArray *path = [self getPathForField:_startField withPath:[NSMutableArray array]];
-        for (UIButton *but in path) {
-            but.backgroundColor = [UIColor redColor];
-        }
-        [self animate:path];
-    } else {
-        for (UIButton *b in self.view.subviews) {
-            if ([b isKindOfClass:[UIButton class]]) {
-                if ([b.currentTitle isEqualToString:@"X"]) {
-                    b.backgroundColor = [UIColor blackColor];
-                } else {
-                    b.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1];
-                }
+        AOPathPoint *startPoint = [_pathManager getPathPointWithTag:_startField.tag];
+        AOPathPoint *endPoint = [_pathManager getPathPointWithTag:_targetField.tag];
+        NSArray *path = [_pathManager getShortestPathFromPoint:startPoint toPoint:endPoint];
+        if (path.count) {
+            NSMutableArray *buttonPath = [NSMutableArray array];
+            for (AOPathPoint *p in path) {
+                UIButton *but = (UIButton*)[self.view viewWithTag:p.tag];
+                but.backgroundColor = [UIColor redColor];
+                [buttonPath addObject:but];
             }
+            [self animate:buttonPath withCompletion:^{
+                for (UIButton *b in self.view.subviews) {
+                    if ([b isKindOfClass:[UIButton class]]) {
+                        if ([b.currentTitle isEqualToString:@"X"]) {
+                            b.backgroundColor = [UIColor blackColor];
+                        } else if (b.tag == 76) {
+                            b.backgroundColor = [UIColor colorWithWhite:0.6 alpha:1.0];
+                        } else {
+                            b.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1];
+                        }
+                    }
+                }
+                _search = NO;
+                _startField = _targetField;
+                _startField.backgroundColor = [UIColor greenColor];
+            }];
+        } else {
+            _search = NO;
         }
-        _startField = _targetField;
-        _startField.backgroundColor = [UIColor greenColor];
     }
 }
 
-- (void)animate:(NSArray*)path {
+- (void)animate:(NSArray*)path withCompletion:(void(^)())completion {
     NSMutableArray *animatePoints = [NSMutableArray array];
     for (UIButton *field in path) {
         void (^p)(void) = ^{
@@ -112,65 +154,41 @@
             [UIView addKeyframeWithRelativeStartTime:duration*i relativeDuration:duration animations:animatePoints[i]];
         }
     } completion:^(BOOL finished) {
-        
+        completion();
     }];
 }
 
-- (NSMutableArray*)getPathForField:(UIButton*)field withPath:(NSMutableArray*)path {
+// we need this method to easily generate connections for basic 2d game plane
+- (NSArray*)getConnectionListForTag:(long)tag {
+    int row = tag/10;
+    int col = tag-row*10;
     
-    NSMutableArray *paths = [NSMutableArray array];
-    if (field == _targetField) {
-        [path addObject:_targetField];
-        [paths addObject:path];
-    } else {
-        NSArray *fields = [self getConnectionsForField:field];
-        for (int i=0; i<fields.count; i++) {
-            UIButton *field = fields[i];
-            if (![path containsObject:field] && field != _startField && ![field.currentTitle isEqualToString:@"X"]) {
-                NSMutableArray *pathh = [path mutableCopy];
-                [pathh addObject:field];
-                //[[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1.0]];
-                //NSLog(@"go");
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    //field.backgroundColor = [UIColor redColor];
-                });
-                NSMutableArray *pathNew = [self getPathForField:field withPath:pathh];
-                if (pathNew && pathNew.count > 0) {
-                    [paths addObject:pathNew];
-                }
-            }
-        }
-    }
-    NSMutableArray *smallest = [NSMutableArray array];
-    for (int i=0; i<paths.count; i++) {
-        NSMutableArray *path = paths[i];
-        if (path.count < smallest.count || smallest.count == 0) {
-            smallest = path;
-        }
-    }
-    return smallest;
-}
-
-- (NSArray*)getConnectionsForField:(UIButton*)field {
-    int row = field.tag/10;
-    int col = field.tag-row*10;
+    NSString *titleX = @"X";
     
     NSMutableArray *cons = [NSMutableArray array];
     if (col-1 > 0) {
         UIButton *but = (UIButton*)[self.view viewWithTag:(row*10+col-1)];
-        [cons addObject:but];
+        if (![but.currentTitle isEqualToString:titleX]) {
+            [cons addObject:but];
+        }
     }
     if (col+1 < [_plane[0] count]+1) {
         UIButton *but = (UIButton*)[self.view viewWithTag:(row*10+col+1)];
-        [cons addObject:but];
+        if (![but.currentTitle isEqualToString:titleX]) {
+            [cons addObject:but];
+        }
     }
     if (row-1 >= 0) {
         UIButton *but = (UIButton*)[self.view viewWithTag:((row-1)*10+col)];
-        [cons addObject:but];
+        if (![but.currentTitle isEqualToString:titleX]) {
+            [cons addObject:but];
+        }
     }
     if (row+1 < [_plane count]) {
         UIButton *but = (UIButton*)[self.view viewWithTag:((row+1)*10+col)];
-        [cons addObject:but];
+        if (![but.currentTitle isEqualToString:titleX]) {
+            [cons addObject:but];
+        }
     }
     
     return cons;
